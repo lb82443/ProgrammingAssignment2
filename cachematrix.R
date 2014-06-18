@@ -1,15 +1,27 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix will create a matrix that can cache its inverse
+## cacheSolve computes the inverse of the matrix, if already
+## calculated then use calculated version
 
-## Write a short comment describing this function
+## here I create the inverse of the matrix and pass to the calling environment
+## by using the <<- operator
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x=matrix()) {
+  
+  inv <<- solve(x)
+  return(inv)
 
 }
 
 
-## Write a short comment describing this function
+## This function checks to see if inv exists, if so
+## then return it else calculate the inverse and return that
+
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  
+   if (length(inv) > 0 ) {return(inv)} else 
+
+     {inv <- solve(x) }
+   
+     return(inv)   
 }
